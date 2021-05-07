@@ -17,7 +17,11 @@ module.exports = {
 		safelist: [/^svelte-[\d\w]+$/],
 	},
 	theme: {
-		extend: {},
+		extend: {
+		  backgroundImage: theme => ({
+			  'tomster': "url('/static/tomster.png')"
+			})
+		},
 	},
 	variants: {
 		extend: {},
