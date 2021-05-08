@@ -22,6 +22,10 @@ module.exports = {
 			  'tomster': "url('/static/tomster.png')"
 			})
 		},
+		backgroundColor: theme => ({
+			...theme('colors'),
+			'ember-primary': '#e46855',
+		})
 	},
 	variants: {
 		extend: {},
