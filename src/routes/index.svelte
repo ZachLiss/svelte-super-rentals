@@ -1,10 +1,37 @@
-<!-- <Header title="Welcome to Super Rentals"/> -->
+<script context="module">
+	const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
 
-<!-- <h1>Welcome to SvelteKit</h1> -->
-<!-- <p>Visit <a class="text-blue-600 underline" href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->
+	export async function load({page, fetch, session, context}) {
+		let response = await fetch('/api/rentals.json');
+		let { data } = await response.json();
+
+    let result = data.map((model) => {
+      let { attributes } = model;
+      let type;
+
+      if (COMMUNITY_CATEGORIES.includes(attributes.category)) {
+        type = 'Community';
+      } else {
+        type = 'Standalone';
+      }
+
+      return { type, ...attributes };
+    });
+
+    return {
+			props: {
+				model: result
+			}
+		}
+
+	}
+</script>
+
 <script>
 	import Jumbo from '../components/jumbo.svelte';
 	import Rental from '../components/rental.svelte';
+
+	export let model;
 </script>
 
 <Jumbo>
@@ -16,8 +43,11 @@
 
 <div class="rentals">
   <ul class="results">
-    <li class="list-none py-2.5 px-3.5"><Rental /></li>
-    <li class="list-none py-2.5 px-3.5"><Rental /></li>
-    <li class="list-none py-2.5 px-3.5"><Rental /></li>
+		{#each model as rental}
+			<li class="list-none py-2.5 px-3.5"><Rental {rental}/></li>
+		{/each}
+    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
+    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
+    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
   </ul>
 </div>
