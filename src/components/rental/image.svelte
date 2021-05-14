@@ -12,6 +12,6 @@
 				class:w-full="{isLarge}"
 				on:click={toggleSize}>
 
-  <img {src} {alt}>
+  <img {src} {alt} class="rounded">
 	<small>View {isLarge ? "Smaller" : "Larger"}</small>
 </button>

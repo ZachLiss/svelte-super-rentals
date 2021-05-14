@@ -1,7 +1,8 @@
 <script>
 	import Image from '../components/rental/image.svelte';
+	import Map from '../components/map.svelte';
 </script>
-<article class="mt-4 bg-gray-100 hover:bg-gray-200 py-5 px-6 flex flex-wrap justify-between align-center  rental">
+<article class="mt-4 bg-gray-100 hover:bg-gray-200 py-5 px-6 flex flex-wrap justify-between items-center  rental">
 	<Image
 		src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg"
     alt="A picture of Grand Old Mansion"
@@ -22,4 +23,13 @@
       <span class="not-italic font-normal">Number of bedrooms:</span> 15
     </div>
   </div>
+
+	<Map
+		lat="37.7749"
+		lng="-122.4194"
+		zoom="9"
+		width="150"
+		height="150"
+		alt="A map of Grand Old Mansion"
+		/>
 </article>
