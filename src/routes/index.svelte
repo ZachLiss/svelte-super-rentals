@@ -6,7 +6,7 @@
 		let { data } = await response.json();
 
     let result = data.map((model) => {
-      let { attributes } = model;
+      let { id, attributes } = model;
       let type;
 
       if (COMMUNITY_CATEGORIES.includes(attributes.category)) {
@@ -15,7 +15,7 @@
         type = 'Standalone';
       }
 
-      return { type, ...attributes };
+      return { id, type, ...attributes };
     });
 
     return {

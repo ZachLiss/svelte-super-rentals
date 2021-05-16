@@ -12,7 +12,11 @@
 		class="test"
 		/>
   <div class="flex flex-wrap align-around justify-between flex-grow h-40 my-5 mx-6  details">
-    <h3 class="text-blue-600 font-bold w-full">{rental.title}</h3>
+		<h3 class="text-blue-600 font-bold w-full">
+			<a sveltekit:prefetch class="" href="/rentals/{rental.id}">
+        {rental.title}
+			</a>
+    </h3>
     <div class="w-1/2 italic font-light whitespace-nowrap detail owner">
       <span class="not-italic font-normal">Owner:</span> {rental.owner}
     </div>
