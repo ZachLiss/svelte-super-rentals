@@ -46,8 +46,5 @@
 		{#each model as rental}
 			<li class="list-none py-2.5 px-3.5"><Rental {rental}/></li>
 		{/each}
-    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
-    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
-    <!-- <li class="list-none py-2.5 px-3.5"><Rental rental={model}/></li> -->
   </ul>
 </div>
