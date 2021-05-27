@@ -29,7 +29,7 @@
 
 <script>
 	import Jumbo from '../components/jumbo.svelte';
-	import Rental from '../components/rental.svelte';
+	import Rentals from '../components/rentals.svelte';
 
 	export let model;
 </script>
@@ -41,10 +41,4 @@
 	<a sveltekit:prefetch class="pt-2 pr-10 pl-10 pb-2 text-white bg-blue-600 rounded" href="about">About Us</a>
 </Jumbo>
 
-<div class="rentals">
-  <ul class="results">
-		{#each model as rental}
-			<li class="list-none py-2.5 px-3.5"><Rental {rental}/></li>
-		{/each}
-  </ul>
-</div>
+<Rentals rentals={model} />
