@@ -2,8 +2,10 @@
 	export let rentals;
 
 	import Rental from '../components/rental.svelte';
+	import Filter from '../components/rentals/filter.svelte';
 
 	$: query = ''
+
 </script>
 
 <div class="rentals">
@@ -12,9 +14,11 @@
     <input bind:value={query} class=" border border-gray-200 text-2xl p-3 light">
   </label>
 
-  <ul class="results">
-		{#each rentals as rental}
-			<li class="list-none py-2.5 px-3.5"><Rental {rental}/></li>
-		{/each}
-  </ul>
+	<Filter {rentals} {query} let:filteredRentals>
+		<ul class="results">
+			{#each filteredRentals as rental}
+				<li class="list-none py-2.5 px-3.5"><Rental {rental}/></li>
+			{/each}
+		</ul>
+	</Filter>
 </div>
